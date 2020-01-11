@@ -29,3 +29,4 @@
 	npm init
 	npm install  --production
 	npm i vant-weapp -S --production
+	在本地设置中勾选使用npm模块
