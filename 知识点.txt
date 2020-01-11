@@ -1,0 +1,31 @@
+1-云开发流程
+	开通(首次开通需要等待10分钟左右)--初始化--api(数据库、云函数、存储)--上线
+2-cloudfunctionRoot 存储云函数(project.config.json中配置)   wx.cloud.init 初始化云能力(app.js中调用)   env 定义服务器默认环境
+3-数据库
+	const db = wx.cloud.database() 获取数据库能力
+	db.collection('数据库表').add({})  增
+	db.collection('数据库表').doc('id').remove({})  删
+	db.collection('数据库表').doc('id').update({})  改
+		--字段
+		--自增
+		--累乘
+	db.collection('数据库表').doc('id').get({})  查
+		--查询所有
+		--分页查询
+		--瀑布流持续加载
+		--下拉刷新
+		--分类
+4-文件操作
+	wx.cloud.uploadFile  上传
+	wx.cloud.downloadFile  下载
+	wx.cloud.deleteFile  删除
+	wx.cloud.getTempFileURL 获取临时链接
+5-概念
+	数据库--由集合表组成
+	集合--表
+	文档--一条记录
+	字段--某一个值
+6-使用vantUI
+	npm init
+	npm install  --production
+	npm i vant-weapp -S --production
