@@ -1,1 +1,36 @@
-<van-button type="default">默认按钮</van-button>
+<!--轮播图-->
+  <swiper indicator-dots circular autoplay interval="1500">
+    <swiper-item 
+      wx:for="{{swiper_imgs}}"
+      wx:key="id"
+    >
+      <image mode="scaleToFill" src="{{item.src}}"></image>
+    </swiper-item>
+  </swiper>
+<!--轮播图end-->
+<!--推荐-->
+<view class="operate">
+  <view class="msg"><text class="iconfont icon-laba"></text>《好文推荐》</view>
+  <view class="mine">登录</view>
+</view>
+<!--推荐end-->
+<scroll-view scroll-y class="main">
+  <view
+    class="item"
+    wx:for="{{swiper_cons}}"
+    wx:key="id"
+  >
+    <view class="tit">{{item.tit}}</view>
+    <view 
+      class="con"
+      wx:for="{{item.children}}"
+      wx:for-item="v"
+      wx:for-index="i"
+      wx:key="*this"
+      data-type="{{v}}"
+      bindtap="look_page"
+    >
+      <view class="item">{{v}}</view>
+    </view>
+  </view>
+</scroll-view>

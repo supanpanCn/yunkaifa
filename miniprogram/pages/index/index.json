@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "van-button":"/"
+    "van-card": "vant-weapp/button"
   }
 }

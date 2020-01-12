@@ -1,0 +1,21 @@
+
+    <view 
+        class="question"
+        wx:for="{{con}}"
+        wx:key="index"
+    >
+        <view class="top">
+            <text class="index">第{{index+1}}题</text>
+            <view>{{item.con}}</view>
+        </view>
+        <view class="bottom">
+            <view class="ty">{{type}}</view>
+            <view class="show" >
+                <text 
+                    data-index="{{index}}" 
+                    bindtap="select_operate" 
+                    class="iconfont icon-shoucang-copy {{collect[index]?'is_col':''}}"
+                ></text>
+            </view>
+        </view>
+    </view>

@@ -30,3 +30,6 @@
 	npm install  --production
 	npm i vant-weapp -S --production
 	在本地设置中勾选使用npm模块
+7-tabBar的list中必须包含首页
+8-本地调试云函数
+	根目录npm install wx-server-sdk@latest

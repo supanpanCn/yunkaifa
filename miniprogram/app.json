@@ -1,18 +1,54 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/index/index",
-    "pages/add/add",
-    
-    "pages/complex/complex"
+    "pages/books/books",
+    "pages/collect/collect",
+    "pages/bug/bug",
+    "pages/mine/mine",
+    "pages/test_page/test_page",
+    "pages/add/add"
+
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "数据库",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "前端笔记",
     "navigationBarTextStyle": "black"
+  },
+  
+  "tabBar":{
+    "color":"#999",
+    "selectedColor":"#ff2d4a",
+    "backgroundColor":"#fafafa",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"首页",
+        "iconPath":"./images/home.png",
+        "selectedIconPath":"./images/home-o.png"
+      },
+      {
+        "pagePath":"pages/books/books",
+        "text":"好书",
+        "iconPath":"./images/book.png",
+        "selectedIconPath":"./images/book-o.png"
+      },
+      {
+        "pagePath":"pages/collect/collect",
+        "text":"收藏",
+        "iconPath":"./images/collect.png",
+        "selectedIconPath":"./images/collect-o.png"
+      },
+      {
+        "pagePath":"pages/bug/bug",
+        "text":"bug",
+        "iconPath":"./images/bug.png",
+        "selectedIconPath":"./images/bug-o.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
+    
 }

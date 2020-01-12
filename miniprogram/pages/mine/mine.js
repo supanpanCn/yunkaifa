@@ -1,4 +1,4 @@
-// pages/complex/complex.js
+// pages/mine/mine.js
 Page({
 
   /**
