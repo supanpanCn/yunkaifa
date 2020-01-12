@@ -1,66 +1,57 @@
-// pages/collect/collect.js
+const db = wx.cloud.database()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
+    isL: false,
+    col_arr:[]
+  },
+  col_arr:[],
+  // 用户是否已经登录
+  get_user_info(e) {
+    let is_deny = e.detail.errMsg.indexOf('deny') != -1 ? true : false
+    if (is_deny) {
+      this.setData({
+        isL: false
+      })
+    } else {
+      wx.cloud.callFunction({
+        name: "userInfo"
+      }).then(res => {
+        wx.cloud.callFunction({
+          name: "userInfo",
+          data: {
+            openid: res.result.openid
+          }
+        })
+        wx.setStorageSync('openid', res.result.openid)
+        this.setData({
+          isL: true
+        })
+      })
+    }
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    let isL = wx.getStorageSync('openid') ? true : false
+    this.setData({
+      isL
+    })
+    if (isL) {
+      let arr = ["CSS", "HTML", "ES6", "JQ", "JS", "REACT", "VUE", "WEIXIN"]
+      let that = this
+      arr.forEach(v => {
+        db.collection(v).where({
+          collect:true
+        }).get().then(res=>{
+          if(res.data.length){
+            this.col_arr.push(...res.data)
+            that.setData({
+              col_arr:this.col_arr
+            })
+          }
+        })
+      })
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,2 +1,22 @@
-<!--pages/books/books.wxml-->
-<text>pages/books/books.wxml</text>
+
+<view 
+    class="books"
+    wx:for="{{books}}"
+    wx:key="id"
+>
+    <text class="tag">{{item.tag}}</text>
+    <view class="main">
+        <view class="tit">《{{item.name}}》</view>
+        <view class="recomond">
+            推荐指数:<text 
+                        class="iconfont icon-start"
+                        wx:for="{{item.rec}}"
+                        wx:for-index="i"
+                        wx:for-item="v"
+                        wx:key="i"
+                    >
+                    </text>
+        </view>
+        <view class="desc">推荐理由:{{item.reason}}</view>
+    </view>
+</view>

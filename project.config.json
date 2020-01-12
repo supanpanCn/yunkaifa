@@ -9,6 +9,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -19,12 +20,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"nodeModules": true
+		}
 	},
 	"appid": "wx4cc0af274a43d304",
 	"projectname": "%E8%8B%8F%E5%B0%8F%E7%94%9F%E7%9A%84%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0",
-	"libVersion": "2.8.1",
+	"libVersion": "2.10.0",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -68,6 +68,20 @@
 					"id": 2,
 					"name": "试题列表",
 					"pathName": "pages/test_page/test_page",
+					"query": "type=html",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "书籍",
+					"pathName": "pages/books/books",
+					"query": "type=html",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "收藏",
+					"pathName": "pages/collect/collect",
 					"query": "type=html",
 					"scene": null
 				}
