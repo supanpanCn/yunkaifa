@@ -28,12 +28,12 @@ Page({
         })
       })
     }
-
   },
-  onLoad: function (options) {
+  onShow: function (options) {
     let isL = wx.getStorageSync('openid') ? true : false
     this.setData({
-      isL
+      isL,
+      col_arr:[]
     })
     if (isL) {
       let arr = ["CSS", "HTML", "ES6", "JQ", "JS", "REACT", "VUE", "WEIXIN"]
@@ -51,7 +51,5 @@ Page({
         })
       })
     }
-  },
-
-
+  }
 })

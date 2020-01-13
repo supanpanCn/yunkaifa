@@ -55,3 +55,26 @@ page {
 .question .bottom .show text.is_col {
   color: red;
 }
+.answer {
+  width: 70vw;
+  padding: 20rpx;
+  position: relative;
+  min-height: 50rpx;
+  padding-top: 80rpx;
+}
+.answer .tit {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+}
+.answer .list {
+  position: relative;
+  text-indent: 2rem;
+  padding: 15rpx 5rpx;
+  border-bottom: 1px solid #d2e620;
+}
+.answer .list .index {
+  position: absolute;
+  left: -50rpx;
+  top: 10rpx;
+}

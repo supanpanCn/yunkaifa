@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-popup": "vant-weapp/popup",
+    "van-tag": "vant-weapp/tag"
+  },
   "navigationBarTitleText": "试题列表"
 }

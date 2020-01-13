@@ -1,14 +1,32 @@
 const db = wx.cloud.database()
 const _ = db.command
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     con:[],
     type:'',
-    collect:[]
+    collect:[],
+    flex_empty:false,
+    show_answer:false,
+    answer:[]
+  },
+  // 查看答案
+  look_answer(e){
+    
+    let {answer} = e.currentTarget.dataset
+    this.setData({
+      show_answer:true,
+      answer
+    })
+    console.log(answer)
+  },
+  // 关闭答案
+  close_answer() {
+    this.setData({
+      show_answer:false
+    })
   },
   // 获取用户授权
   get_right(){
@@ -48,7 +66,7 @@ Page({
           collect
         })
         wx.showToast({
-          title: '已添加收藏~',
+          title: collect[index]?'已添加收藏~':'已取消收藏~',
           duration: 1000,
           mask:true
         })
@@ -61,7 +79,7 @@ Page({
       }
     })
   },
-
+  // 收藏
   select_operate(e){
     // 提醒用户登录
     let isL = wx.getStorageSync('openid'),
@@ -93,9 +111,16 @@ Page({
     let {type}=options,
          con=[],
          that=this,
-         collect=[]
+         collect=[],
+         {flex}=this.data
     if(type=="小程序"){
       type='weixin'
+    }
+    if(type=="flex"){
+      this.setData({
+        flex_empty:true
+      })
+      return
     }
     db.collection(type.toUpperCase()).get().then(res=>{
       res.data.forEach(v=>{

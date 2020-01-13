@@ -79,16 +79,16 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "收藏",
 					"pathName": "pages/collect/collect",
-					"query": "type=html",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "bug",
-					"pathName": "pages/collect/collect",
+					"pathName": "pages/bug/bug",
 					"query": "type=html",
 					"scene": null
 				}

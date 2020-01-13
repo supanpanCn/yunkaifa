@@ -11,9 +11,10 @@
         <text>题目</text>
         <input 
             adjust-position  
-            placeholder="请输入您的bug描述" 
+            placeholder="请输入您遇到的bug" 
             maxlength="60"
             bindinput="input_change"
+            value="{{value.input}}"
         >
         </input>
     </view>
@@ -24,6 +25,7 @@
             name="textarea"
             auto-height
             adjust-position
+            value="{{value.textarea}}"
         />
         <button form-type="submit"> 提交 </button>
     </form>

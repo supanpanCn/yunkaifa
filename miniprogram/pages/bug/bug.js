@@ -1,4 +1,4 @@
-// pages/bug/bug.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -29,26 +29,33 @@ Page({
       {
         name: '小程序'
       }
-    ]
+    ],
+    value:{
+      input:'',
+      textarea:''
+    }
     
   },
   bug_tit: '',
   login_status:false,
+  // 弹出类型选择
   open_vas() {
     this.setData({
       show: true
     })
   },
+  // 关闭类型选择
   close_vas() {
     this.setData({ show: false });
   },
+  // 选择类型
   select_item(event) {
-    console.log(event.detail.name);
     this.setData({
       ty: event.detail.name,
       show: false
     })
   },
+  // 提交
   submit(e) {
     let bug_con = e.detail.value.textarea
     if (this.bug_tit == '') {
@@ -69,14 +76,42 @@ Page({
     }
     this.isL()
     if(this.login_status){
-      console.log('send')
+      let {ty} = this.data,
+          that=this
+      db.collection("BUG").add({
+        data:{
+          tag:ty.toLowerCase(),
+          content:{
+            con:bug_con,
+            tit:that.bug_tit
+          }
+        }
+      }).then(res=>{
+        if(res.errMsg.indexOf('add:ok')!==-1){
+          wx.showToast({
+            title: '已提交~',
+            duration: 1500,
+            mask: true,
+            success:()=>{
+              that.setData({
+                value:{
+                  textarea:'',
+                  input:''
+                }
+              })
+            }
+          });
+            
+        }
+      })
     }
     // console.log(e.detail.value)
   },
+  // 用户输入
   input_change(e) {
-    console.log(e.detail.value)
     this.bug_tit = e.detail.value
   },
+  // 用户登录
   isL() {
     let isL = wx.getStorageSync('openid'),
       that = this
@@ -97,6 +132,7 @@ Page({
       this.login_status=true
     }
   },
+  // 获取权限
   get_right(){
     wx.cloud.callFunction({
       name:"userInfo"
@@ -110,13 +146,5 @@ Page({
       wx.setStorageSync('openid',res.result.openid)
       this.login_status=true
     })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-
+  }
 })

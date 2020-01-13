@@ -1,21 +1,39 @@
 
+<block wx:if="{{!flex_empty}}">
     <view 
         class="question"
         wx:for="{{con}}"
         wx:key="index"
+        data-answer="{{item.answer}}"
+        bindtap="look_answer"
     >
-        <view class="top">
-            <text class="index">第{{index+1}}题</text>
-            <view>{{item.con}}</view>
-        </view>
-        <view class="bottom">
-            <view class="ty">{{type}}</view>
-            <view class="show" >
-                <text 
-                    data-index="{{index}}" 
-                    bindtap="select_operate" 
-                    class="iconfont icon-shoucang-copy {{collect[index]?'is_col':''}}"
-                ></text>
-            </view>
+    <view class="top">
+        <text class="index">第{{index+1}}题</text>
+        <view>{{item.con}}</view>
+    </view>
+    <view class="bottom">
+        <view class="ty">{{type}}</view>
+        <view class="show" >
+            <text 
+                data-index="{{index}}" 
+                catchtap="select_operate" 
+                class="iconfont icon-shoucang-copy {{collect[index]?'is_col':''}}"
+            ></text>
         </view>
     </view>
+    </view>
+</block>
+<view wx:else class="none">还没有相关试题哦~~</view>
+<!--展示答案-->
+<van-popup show="{{ show_answer }}" bind:close="close_answer">
+    <view class="answer">
+        <van-tag class="tit" plain type="warning">答案</van-tag>
+        <view 
+            class="list"
+            wx:for="{{answer}}"
+            wx:key="index"
+        >
+        <text class="index">({{index+1}})</text>{{item}}
+        </view>
+    </view>
+</van-popup>
