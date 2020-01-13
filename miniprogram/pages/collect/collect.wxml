@@ -1,4 +1,17 @@
 <view wx:if="{{isL}}">
-123
+<view 
+        class="question"
+        wx:for="{{col_arr}}"
+        wx:key="index"
+    >
+        <view class="top">
+            <text class="index">第{{index+1}}题</text>
+            <view>{{item.content.con}}</view>
+        </view>
+        <view class="bottom">
+            <view class="ty">{{item.type}}</view>
+            
+        </view>
+    </view>
 </view>
 <button wx:else type="primary" open-type="getUserInfo" plain bindgetuserinfo="get_user_info">登录</button>

@@ -84,6 +84,13 @@
 					"pathName": "pages/collect/collect",
 					"query": "type=html",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bug",
+					"pathName": "pages/collect/collect",
+					"query": "type=html",
+					"scene": null
 				}
 			]
 		}
