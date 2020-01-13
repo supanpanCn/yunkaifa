@@ -32,12 +32,12 @@ Page({
         id:2,
         tit:'框架',
         children:['vue','react','小程序']
-      },
-      {
-        id:3,
-        tit:'综合',
-        children:['测试(一)','测试(二)']
       }
+      // {
+      //   id:3,
+      //   tit:'综合',
+      //   children:['测试(一)','测试(二)']
+      // }
     ]
   },
   // 查看试题
@@ -45,6 +45,11 @@ Page({
     let {type} = e.currentTarget.dataset
     wx.navigateTo({
       url: `/pages/test_page/test_page?type=${type}`
+    })
+  },
+  every_tit(){
+    wx.navigateTo({
+      url:"/pages/every_day/every_day"
     })
   }
 })

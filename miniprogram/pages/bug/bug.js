@@ -77,14 +77,16 @@ Page({
     this.isL()
     if(this.login_status){
       let {ty} = this.data,
-          that=this
+          that=this,
+          author=wx.getStorageSync('openid')
       db.collection("BUG").add({
         data:{
           tag:ty.toLowerCase(),
           content:{
             con:bug_con,
             tit:that.bug_tit
-          }
+          },
+          author
         }
       }).then(res=>{
         if(res.errMsg.indexOf('add:ok')!==-1){

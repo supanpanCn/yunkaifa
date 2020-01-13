@@ -4,9 +4,8 @@
     "pages/books/books",
     "pages/collect/collect",
     "pages/bug/bug",
-    "pages/mine/mine",
     "pages/test_page/test_page",
-    "pages/add/add"
+    "pages/every_day/every_day"
 
   ],
   "window": {

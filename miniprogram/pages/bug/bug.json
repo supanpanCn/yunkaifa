@@ -3,5 +3,6 @@
     "van-action-sheet": "vant-weapp/action-sheet",
     "van-button": "vant-weapp/button",
     "van-tag": "vant-weapp/tag"
-  }
+  },
+  "navigationBarTitleText": "bug日记"
 }

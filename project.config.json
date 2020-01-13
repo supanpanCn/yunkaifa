@@ -58,13 +58,6 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "新增",
-					"pathName": "pages/add/add",
-					"query": "",
-					"scene": null
-				},
-				{
 					"id": 2,
 					"name": "试题列表",
 					"pathName": "pages/test_page/test_page",
@@ -89,6 +82,13 @@
 					"id": -1,
 					"name": "bug",
 					"pathName": "pages/bug/bug",
+					"query": "type=html",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "每日一题",
+					"pathName": "pages/every_day/every_day",
 					"query": "type=html",
 					"scene": null
 				}

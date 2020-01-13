@@ -1,0 +1,34 @@
+<view class="main">
+    <view class="title">
+        <view class="l">每日一题</view>
+        <rich-text nodes="{{dateTime}}" space class="r">
+        </rich-text>
+    </view>
+    <view class="tit">
+         <view 
+            class="question"
+        >
+            <view class="top">
+                <view>{{qus.content.con}}</view>
+            </view>
+            <view class="bottom">
+                <view class="ty">{{qus.type}}</view>
+                <view class="btn" bindtap="look_answer">查看答案</view>
+            </view>
+        </view>
+    </view>
+    <view class="answer">
+        <van-transition show="{{ show_answer }}">
+            <view 
+                class="list"
+                wx:for="{{qus.content.answer}}"
+                wx:key="index"
+            >
+                ({{index+1}}) {{item}}
+            </view>
+        </van-transition>
+    </view>
+</view>
+
+
+

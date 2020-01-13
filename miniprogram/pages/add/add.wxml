@@ -1,6 +1,0 @@
-<van-button square type="primary" bind:click="addData" block>增</van-button>
-<van-button square type="primary" bind:click="delData" block>删</van-button>
-<van-button square type="primary" bind:click="updateData" block>改</van-button>
-<van-button square type="primary" bind:click="searchData" block>查</van-button>
-<van-button square type="primary" bind:click="useCloud" block>调用云函数</van-button>
-

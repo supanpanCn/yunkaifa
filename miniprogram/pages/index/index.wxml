@@ -10,7 +10,7 @@
 <!--轮播图end-->
 <!--推荐-->
 <view class="operate">
-  <view class="msg"><text class="iconfont icon-laba"></text>《每日一题》</view>
+  <view class="msg" bindtap="every_tit"><text class="iconfont icon-laba"></text>《每日一题》</view>
   <view class="mine">登录</view>
 </view>
 <!--推荐end-->
