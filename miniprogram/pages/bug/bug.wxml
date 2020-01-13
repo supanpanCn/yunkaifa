@@ -1,2 +1,36 @@
-<!--pages/bug/bug.wxml-->
-<text>pages/bug/bug.wxml</text>
+<van-button 
+    size="large" 
+    bind:click="open_vas" 
+    custom-class="vbtn_sty"
+>
+请选择类型
+</van-button>
+<view class="main">
+    <van-tag mark plain size="large" type="warning">{{ty}}</van-tag>
+    <view class="title">
+        <text>题目</text>
+        <input 
+            adjust-position  
+            placeholder="请输入您的bug描述" 
+            maxlength="60"
+            bindinput="input_change"
+        >
+        </input>
+    </view>
+    内容<form bindsubmit="submit">
+        <textarea 
+            placeholder="请输入您的bug解决方案" 
+            maxlength="240"
+            name="textarea"
+            auto-height
+            adjust-position
+        />
+        <button form-type="submit"> 提交 </button>
+    </form>
+</view>
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:close="close_vas"
+  bind:select="select_item"
+/>
